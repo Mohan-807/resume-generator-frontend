@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="left-column background-dark">
+    <h2>Form Section</h2>
+
+    <mat-label>Padding Around Corner of sheet</mat-label>
+    <mat-form-field class="full-width custom-input">
+      <input matInput type="number" [(ngModel)]="padding" name="padding" placeholder="Enter padding in px" />
+    </mat-form-field>
+
+    <mat-label>Border Width Inside Padding</mat-label>
+    <mat-form-field class="full-width custom-input">
+      <input matInput type="number" [(ngModel)]="borderWidth" name="borderWidth" placeholder="Enter border width in px" />
+    </mat-form-field>
+
+    <mat-label>Title</mat-label>
+    <mat-form-field class="full-width custom-input">
+      <input matInput type="text" [(ngModel)]="title" name="title" placeholder="Enter title" />
+    </mat-form-field>
+
+    <mat-label>Content</mat-label>
+    <mat-form-field class="full-width custom-input">
+      <textarea matInput [(ngModel)]="content" name="content" placeholder="Enter content here"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="previewDesign()">Preview Design</button>
+  </div>
+
+  <div class="right-column">
+      <div
+        class="a4-preview"
+        [style.padding.px]="padding || 0"
+        style="background-color: grey; position: relative;"
+      >
+        <div
+          class="inner-border"
+          [style.borderWidth.px]="borderWidth || 0"
+          style="border-style: solid; border-color: black; padding: 20px;"
+        >
+          <h3>{{ title || 'Preview Title' }}</h3>
+          <p>{{ content || 'Preview content goes here...' }}</p>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+@use '@angular/material' as mat;
+
+/* 🎨 Define custom palettes */
+$my-primary: mat.define-palette(mat.$blue-palette, 500);     // Pure blue
+$my-accent: mat.define-palette(mat.$light-blue-palette, A200); // Light blue accent
+$my-warn: mat.define-palette(mat.$red-palette);               // Default red for warnings
+
+/* 🌞 Create the theme */
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  )
+));
+
+/* 🔥 Apply theme to all Angular Material components */
+@include mat.all-component-themes($my-theme);
