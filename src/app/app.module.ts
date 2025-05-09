@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateDesignerComponent } from './template-designer/template-designer.component';
 import { FormsModule } from '@angular/forms';
+import { ResumeDesignerComponent } from './resume-designer/resume-designer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplateDesignerComponent
+    TemplateDesignerComponent,
+    ResumeDesignerComponent
   ],
   imports: [
     BrowserModule,
