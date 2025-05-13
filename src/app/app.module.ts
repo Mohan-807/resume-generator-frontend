@@ -11,6 +11,7 @@ import { TemplateDesignerComponent } from './template-designer/template-designer
 import { FormsModule } from '@angular/forms';
 import { ResumeDesignerComponent } from './resume-designer/resume-designer.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ResumeTemplateComponent } from './resume-template/resume-template.compo
       MatSelectModule,
       FormsModule  ,
       DragDropModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

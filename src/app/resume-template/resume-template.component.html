@@ -1,13 +1,36 @@
 <div class="container">
-  <div class="left-column background-dark">
+  <div class="left-column background-dark" [formGroup]="resumeForm">
     <h2>Upload A4 Background Image</h2>
 
     <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+
+    <div style="margin-top: 20px;">
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Job Title</mat-label>
+        <input matInput formControlName="jobTitle" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+    </div>
 
     <button mat-raised-button (click)="previewDesign()" [disabled]="!templateImage">
       Preview Design
     </button>
   </div>
+
 
   <div class="right-column">
     <div
@@ -36,7 +59,7 @@
             style="background: transparent; grid-column: span 2; position: relative; height: 100%;box-sizing: border-box;">
             <div
               style="letter-spacing:0.5mm; position: relative;right:15px; top: 15px; height: 100%; box-sizing: border-box;color: white;">
-              JOB TITLE
+              {{ resumeForm.get('jobTitle')?.value }}
             </div>
           </div>
         </div>
@@ -61,14 +84,15 @@
 
                 <div>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin:5px">
-                    sally.branders&#64;gmail.com
+                    {{ resumeForm.get('email')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal;margin:5px">
-                    +91 1234567890
+                    {{ resumeForm.get('phone')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin:5px">
-                    India, Bangalore
+                    {{ resumeForm.get('location')?.value }}
                   </h3>
+
                 </div>
               </div>
 

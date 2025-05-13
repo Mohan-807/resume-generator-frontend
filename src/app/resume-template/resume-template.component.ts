@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-resume-template',
@@ -7,6 +8,18 @@ import { AfterViewInit, Component } from '@angular/core';
 })
 export class ResumeTemplateComponent {
   templateImage?: string;
+  resumeForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.resumeForm = this.fb.group({
+      jobTitle: [''],
+      email: [''],
+      phone: [''],
+      location: ['']
+    });
+  }
 
   onImageSelected(event: any): void {
     const file = event.target.files[0];
@@ -19,6 +32,15 @@ export class ResumeTemplateComponent {
     }
   }
   previewDesign(): void {
+
+    //  Get form values
+    const jobTitle = this.resumeForm.get('jobTitle')?.value || '';
+    const email = this.resumeForm.get('email')?.value || '';
+    const phone = this.resumeForm.get('phone')?.value || '';
+    const location = this.resumeForm.get('location')?.value || '';
+
+
+
     const previewWindow = window.open('', '_blank');
     if (previewWindow) {
       const templateImageTag = this.templateImage
@@ -312,7 +334,7 @@ export class ResumeTemplateComponent {
               <div><!--Empty Block--></div>
                  <div class="rectangle-3">
                    <div class="rectangle-4">
-                       JOB TITLE
+                        ${jobTitle}
                    </div>
                  </div>
             </div>
@@ -333,15 +355,9 @@ export class ResumeTemplateComponent {
                       </div>
 
                       <div>
-                         <h3 class="l-first-content-style">
-                            sally.branders&#64;gmail.com
-                         </h3>
-                         <h3 class="l-first-content-style">
-                           +91 1234567890
-                         </h3>
-                         <h3 class="l-first-content-style">
-                            India, Bangalore
-                         </h3>
+                         <h3 class="l-first-content-style">${email}</h3>
+                         <h3 class="l-first-content-style">${phone}</h3>
+                         <h3 class="l-first-content-style">${location}</h3>
                       </div>
                     </div>
 
