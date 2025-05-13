@@ -10,12 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateDesignerComponent } from './template-designer/template-designer.component';
 import { FormsModule } from '@angular/forms';
 import { ResumeDesignerComponent } from './resume-designer/resume-designer.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ResumeTemplateComponent } from './resume-template/resume-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDesignerComponent,
-    ResumeDesignerComponent
+    ResumeDesignerComponent,
+    ResumeTemplateComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { ResumeDesignerComponent } from './resume-designer/resume-designer.compo
      MatInputModule,
       MatSelectModule,
       FormsModule  ,
+      DragDropModule,
     BrowserAnimationsModule
   ],
   providers: [],
