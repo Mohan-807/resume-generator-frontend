@@ -1,10 +1,15 @@
 <div class="container">
-  <div class="left-column background-dark" [formGroup]="resumeForm">
+  <div class="left-column background-dark" [formGroup]="resumeForm"
+  style=" overflow-y: auto;">
     <h2>Upload A4 Background Image</h2>
 
     <input type="file" accept="image/*" (change)="onImageSelected($event)" />
 
     <div style="margin-top: 20px;">
+      <label for="coverImage">Profile Image</label>
+      <input type="file" id="coverImage" accept="image/*" (change)="onCoverImageSelected($event)" />
+
+
       <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Job Title</mat-label>
         <input matInput formControlName="jobTitle" />
@@ -24,13 +29,172 @@
         <mat-label>Location</mat-label>
         <input matInput formControlName="location" />
       </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Profile Summary</mat-label>
+        <input matInput formControlName="profileSummary" />
+      </mat-form-field>
+
+       <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 1</mat-label>
+        <input matInput formControlName="skillOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 2</mat-label>
+        <input matInput formControlName="skillTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 3</mat-label>
+        <input matInput formControlName="skillThree" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 4</mat-label>
+        <input matInput formControlName="skillFour" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 5</mat-label>
+        <input matInput formControlName="skillFive" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 1</mat-label>
+        <input matInput formControlName="languageOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 2</mat-label>
+        <input matInput formControlName="languageTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 3</mat-label>
+        <input matInput formControlName="languageThree" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 4</mat-label>
+        <input matInput formControlName="languageFour" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 5</mat-label>
+        <input matInput formControlName="languageFive" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="lastName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Organization Name</mat-label>
+        <input matInput formControlName="firstCompanyName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="firstCompanyRole" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="firstCompanyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Description</mat-label>
+        <input matInput formControlName="firstCompanyDescriptionOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Description</mat-label>
+        <input matInput formControlName="firstCompanyDescriptionTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Organization Name</mat-label>
+        <input matInput formControlName="secondCompanyName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="secondCompanyRole" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="secondCompanyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Description</mat-label>
+        <input matInput formControlName="secondCompanyDescriptionOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Description</mat-label>
+        <input matInput formControlName="secondCompanyDescriptionTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Education Name</mat-label>
+        <input matInput formControlName="firstFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="firstFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="firstFieldOfStudyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Education Name</mat-label>
+        <input matInput formControlName="secondFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="secondFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="secondFieldOfStudyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Third Education Name</mat-label>
+        <input matInput formControlName="thirdFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="thirdFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="thirdFieldOfStudyLocation" />
+      </mat-form-field>
     </div>
 
     <button mat-raised-button (click)="previewDesign()" [disabled]="!templateImage">
       Preview Design
     </button>
   </div>
-
 
   <div class="right-column">
     <div
@@ -45,7 +209,8 @@
         <!-- w-30% h18% left 30px -->
         <!-- Circle Image Container -->
         <div style="height: 100%; aspect-ratio: 1/1; border-radius: 50%;overflow: hidden;border: 2px solid white;">
-          <img src="/assets/image-2.jpg" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;" />
+          <img *ngIf="coverImage" [src]="coverImage" alt="Profile"
+            style="width: 100%; height: 100%; object-fit: cover;" />
         </div>
       </div>
 
@@ -105,9 +270,7 @@
                 </div>
                 <div>
                   <h3 style="font-weight: normal; margin: 5px 0; text-align: justify; word-break: normal;">
-                    Business development manager looking to obtain a challenging position in a
-                    organization, utilizing my proven track record in driving revenue growth and
-                    forging strategic partnerships to achieve business objectives.
+                    {{ resumeForm.get('profileSummary')?.value }}
                   </h3>
                 </div>
               </div>
@@ -122,19 +285,19 @@
 
                 <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Excel
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('skillOne')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> PowerPoint
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('skillTwo')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> CRM
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('skillThree')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Problem-Solving
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('skillFour')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Team Leadership
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('skillFive')?.value }}
                   </li>
                 </ul>
               </div>
@@ -149,19 +312,19 @@
 
                 <ul style="list-style: none; padding-left: 0; margin: 10px 0;">
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Kannada: Native
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('languageOne')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Tamil: Intermediate
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('languageTwo')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Telugu: Intermediate
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('languageThree')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> Hindi: Intermediate
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('languageFour')?.value }}
                   </li>
                   <li style="position: relative; padding-left: 24px; margin-bottom: 10px;">
-                    <span style="position: absolute; left: 0;">✔</span> English: Fluent
+                    <span style="position: absolute; left: 0;">✔</span> {{ resumeForm.get('languageFive')?.value }}
                   </li>
                 </ul>
               </div>
@@ -175,10 +338,12 @@
           style="background: transparent; height: 100%;grid-column: span 2; box-sizing: border-box; position: relative;">
           <!-- Above rectangle -->
           <div style="position: absolute;width: 100%; top: 50px; display: flex; flex-direction: column; gap: 4px; ">
-            <div style="font-size: 30px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">Sally</div>
+            <div style="font-size: 30px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+              {{ resumeForm.get('firstName')?.value }}
+            </div>
             <div>
               <h1 style="margin: 0; font-size: 50px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-                Branders</h1>
+                {{ resumeForm.get('lastName')?.value }}</h1>
             </div>
           </div>
 
@@ -196,48 +361,46 @@
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    XYZ Consulting Firm
+                    {{ resumeForm.get('firstCompanyName')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    Business development manager
+                    {{ resumeForm.get('firstCompanyRole')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    {{ resumeForm.get('firstCompanyLocation')?.value }}
                   </h3>
 
                   <ul style="list-style: none; padding-left: 20px; margin: 5px 0;">
                     <li style="position: relative; padding-left: 16px; margin-bottom: 6px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Developed and executed a comprehensive sales strategy, resulting in a
-                      40% increase in annual revenue within one year.
+                      {{ resumeForm.get('firstCompanyDescriptionOne')?.value }}
                     </li>
                     <li style="position: relative; padding-left: 16px;">
                       <span style="position: absolute; left: 0; font-weight: normal; text-align: justify;">•</span>
-                      Identified and pursued new business opportunities through market research.
+                     {{ resumeForm.get('firstCompanyDescriptionTwo')?.value }}
                     </li>
                   </ul>
                 </div>
 
                 <div style="position: relative; right:15px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    ABC Corporation
+                   {{ resumeForm.get('secondCompanyName')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    Sales representative
+                     {{ resumeForm.get('secondCompanyRole')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    {{ resumeForm.get('secondCompanyLocation')?.value }}
                   </h3>
 
                   <ul style="list-style: none; padding-left: 20px; margin: 5px 0;">
                     <li style="position: relative; padding-left: 16px; margin-bottom: 6px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Achieved consistent sales targets by successfully prospecting and closing
-                      new business opportunities in a competitive market.
+                      {{ resumeForm.get('secondCompanyDescriptionOne')?.value }}
                     </li>
                     <li style="position: relative; padding-left: 16px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Conducted product demonstrations and presentations to potential clients.
+                     {{ resumeForm.get('secondCompanyDescriptionTwo')?.value }}
                     </li>
                   </ul>
                 </div>
@@ -254,37 +417,37 @@
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    Bachelor of Engineering in ECE
+                    {{ resumeForm.get('firstFieldOfStudy')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    7.8 CGPA
+                    {{ resumeForm.get('firstFieldOfStudyGrade')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    {{ resumeForm.get('firstFieldOfStudyLocation')?.value }}
                   </h3>
                 </div>
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    PUC in GR Educational Institutions
+                    {{ resumeForm.get('secondFieldOfStudy')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    78%
+                   {{ resumeForm.get('secondFieldOfStudyGrade')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    {{ resumeForm.get('secondFieldOfStudyLocation')?.value }}
                   </h3>
                 </div>
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    SSLC in GR Educational Institutions
+                    {{ resumeForm.get('thirdFieldOfStudy')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    9.4 CGPA
+                   {{ resumeForm.get('thirdFieldOfStudyGrade')?.value }}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    {{ resumeForm.get('thirdFieldOfStudyLocation')?.value }}
                   </h3>
                 </div>
               </div>

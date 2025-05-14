@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ResumeTemplateComponent {
   templateImage?: string;
+  coverImage?: string;
   resumeForm!: FormGroup;
 
   constructor(private fb: FormBuilder) { }
@@ -17,7 +18,39 @@ export class ResumeTemplateComponent {
       jobTitle: [''],
       email: [''],
       phone: [''],
-      location: ['']
+      location: [''],
+      profileSummary:[''],
+      lastName:[''],
+      firstName:[''],
+      firstCompanyName:[''],
+      firstCompanyRole:[''],
+      firstCompanyLocation:[''],
+      secondCompanyName:[''],
+      secondCompanyRole:[''],
+      secondCompanyLocation:[''],
+      firstFieldOfStudy:[''],
+      firstFieldOfStudyGrade:[''],
+      firstFieldOfStudyLocation:[''],
+      secondFieldOfStudy:[''],
+      secondFieldOfStudyGrade:[''],
+      secondFieldOfStudyLocation:[''],
+      thirdFieldOfStudy:[''],
+      thirdFieldOfStudyGrade:[''],
+      thirdFieldOfStudyLocation:[''],
+      skillOne:[''],
+      skillTwo:[''],
+      skillThree:[''],
+      skillFour:[''],
+      skillFive:[''],
+      languageOne:[''],
+      languageTwo:[''],
+      languageThree:[''],
+      languageFour:[''],
+      languageFive:[''],
+      firstCompanyDescriptionOne:[''],
+      firstCompanyDescriptionTwo:[''],
+      secondCompanyDescriptionOne:[''],
+      secondCompanyDescriptionTwo:[''],
     });
   }
 
@@ -31,6 +64,17 @@ export class ResumeTemplateComponent {
       reader.readAsDataURL(file);
     }
   }
+
+  onCoverImageSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.coverImage = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
   previewDesign(): void {
 
     //  Get form values
@@ -38,13 +82,47 @@ export class ResumeTemplateComponent {
     const email = this.resumeForm.get('email')?.value || '';
     const phone = this.resumeForm.get('phone')?.value || '';
     const location = this.resumeForm.get('location')?.value || '';
-
-
+    const profileSummary = this.resumeForm.get('profileSummary')?.value || '';
+    const lastName = this.resumeForm.get('lastName')?.value || '';
+    const firstName = this.resumeForm.get('firstName')?.value || '';
+    const firstCompanyName = this.resumeForm.get('firstCompanyName')?.value || '';
+    const firstCompanyRole = this.resumeForm.get('firstCompanyRole')?.value || '';
+    const firstCompanyLocation = this.resumeForm.get('firstCompanyLocation')?.value || '';
+    const secondCompanyName = this.resumeForm.get('secondCompanyName')?.value || '';
+    const secondCompanyRole = this.resumeForm.get('secondCompanyRole')?.value || '';
+    const secondCompanyLocation = this.resumeForm.get('secondCompanyLocation')?.value || '';
+    const firstFieldOfStudy = this.resumeForm.get('firstFieldOfStudy')?.value || '';
+    const firstFieldOfStudyGrade = this.resumeForm.get('firstFieldOfStudyGrade')?.value || '';
+    const firstFieldOfStudyLocation = this.resumeForm.get('firstFieldOfStudyLocation')?.value || '';
+    const secondFieldOfStudy = this.resumeForm.get('secondFieldOfStudy')?.value || '';
+    const secondFieldOfStudyGrade = this.resumeForm.get('secondFieldOfStudyGrade')?.value || '';
+    const secondFieldOfStudyLocation = this.resumeForm.get('secondFieldOfStudyLocation')?.value || '';
+    const thirdFieldOfStudy = this.resumeForm.get('thirdFieldOfStudy')?.value || '';
+    const thirdFieldOfStudyGrade = this.resumeForm.get('thirdFieldOfStudyGrade')?.value || '';
+    const thirdFieldOfStudyLocation = this.resumeForm.get('thirdFieldOfStudyLocation')?.value || '';
+    const skillOne = this.resumeForm.get('skillOne')?.value || '';
+    const skillTwo = this.resumeForm.get('skillTwo')?.value || '';
+    const skillThree = this.resumeForm.get('skillThree')?.value || '';
+    const skillFour = this.resumeForm.get('skillFour')?.value || '';
+    const skillFive = this.resumeForm.get('skillFive')?.value || '';
+    const languageOne = this.resumeForm.get('languageOne')?.value || '';
+    const languageTwo = this.resumeForm.get('languageTwo')?.value || '';
+    const languageThree = this.resumeForm.get('languageThree')?.value || '';
+    const languageFour = this.resumeForm.get('languageFour')?.value || '';
+    const languageFive = this.resumeForm.get('languageFive')?.value || '';
+    const firstCompanyDescriptionOne = this.resumeForm.get('firstCompanyDescriptionOne')?.value || '';
+    const firstCompanyDescriptionTwo = this.resumeForm.get('firstCompanyDescriptionTwo')?.value || '';
+    const secondCompanyDescriptionOne = this.resumeForm.get('secondCompanyDescriptionOne')?.value || '';
+    const secondCompanyDescriptionTwo = this.resumeForm.get('secondCompanyDescriptionTwo')?.value || '';
 
     const previewWindow = window.open('', '_blank');
     if (previewWindow) {
       const templateImageTag = this.templateImage
         ? `<img src="${this.templateImage}" class="background-image" />`
+        : '';
+
+      const coverImageTag = this.coverImage
+        ? `<img src="${this.coverImage}" alt="Profile Image" style="width: 100%; height: 100%; object-fit: cover;" />`
         : '';
 
       previewWindow.document.write(`
@@ -324,7 +402,7 @@ export class ResumeTemplateComponent {
           <!--Image cover-->
           <div class="image-cover-1">
              <div class="image-cover-2">
-               <img src="/assets/image-2.jpg" alt="Profile" style="width: 100%; height: 100%; object-fit: cover;" />
+               ${coverImageTag}
              </div>
          </div>
 
@@ -369,9 +447,7 @@ export class ResumeTemplateComponent {
                 </div>
                 <div>
                   <h3 class="l-second-content-4">
-                    Business development manager looking to obtain a challenging position in a
-                    organization, utilizing my proven track record in driving revenue growth and
-                    forging strategic partnerships to achieve business objectives.
+                   ${profileSummary}
                   </h3>
                 </div>
               </div>
@@ -385,19 +461,19 @@ export class ResumeTemplateComponent {
 
                 <ul class="l-list">
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Excel
+                    <span class="l-list-sub">✔</span> ${skillOne}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> PowerPoint
+                    <span class="l-list-sub">✔</span> ${skillTwo}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> CRM
+                    <span class="l-list-sub">✔</span> ${skillThree}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Problem-Solving
+                    <span class="l-list-sub">✔</span> ${skillFour}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Team Leadership
+                    <span class="l-list-sub">✔</span> ${skillFive}
                   </li>
                 </ul>
               </div>
@@ -411,19 +487,19 @@ export class ResumeTemplateComponent {
 
                 <ul class="l-list">
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Kannada: Native
+                    <span class="l-list-sub">✔</span> ${languageOne}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Tamil: Intermediate
+                    <span class="l-list-sub">✔</span> ${languageTwo}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Telugu: Intermediate
+                    <span class="l-list-sub">✔</span> ${languageThree}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> Hindi: Intermediate
+                    <span class="l-list-sub">✔</span> ${languageFour}
                   </li>
                   <li class="l-list-style">
-                    <span class="l-list-sub">✔</span> English: Fluent
+                    <span class="l-list-sub">✔</span> ${languageFive}
                   </li>
                 </ul>
 
@@ -437,10 +513,10 @@ export class ResumeTemplateComponent {
           class="right-grid">
           <!-- Above rectangle -->
           <div class="above-rec-1">
-            <div class="above-rec-2">Sally</div>
+            <div class="above-rec-2">${lastName}</div>
             <div>
               <h1 class="above-rec-3">
-                Branders</h1>
+                ${firstName}</h1>
             </div>
           </div>
 
@@ -458,48 +534,46 @@ export class ResumeTemplateComponent {
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    XYZ Consulting Firm
+                    ${firstCompanyName}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    Business development manager
+                    ${firstCompanyRole}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    ${firstCompanyLocation}
                   </h3>
 
                   <ul style="list-style: none; padding-left: 20px; margin: 5px 0;">
                     <li style="position: relative; padding-left: 16px; margin-bottom: 6px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Developed and executed a comprehensive sales strategy, resulting in a
-                      40% increase in annual revenue within one year.
+                      ${firstCompanyDescriptionOne}
                     </li>
                     <li style="position: relative; padding-left: 16px;">
                       <span style="position: absolute; left: 0; font-weight: normal; text-align: justify;">•</span>
-                      Identified and pursued new business opportunities through market research.
+                     ${firstCompanyDescriptionTwo}
                     </li>
                   </ul>
                 </div>
 
                 <div style="position: relative; right:15px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    ABC Corporation
+                    ${secondCompanyName}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    Sales representative
+                    ${secondCompanyRole}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    ${secondCompanyLocation}
                   </h3>
 
                   <ul style="list-style: none; padding-left: 20px; margin: 5px 0;">
                     <li style="position: relative; padding-left: 16px; margin-bottom: 6px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Achieved consistent sales targets by successfully prospecting and closing
-                      new business opportunities in a competitive market.
+                     ${secondCompanyDescriptionOne}
                     </li>
                     <li style="position: relative; padding-left: 16px; text-align: justify;">
                       <span style="position: absolute; left: 0; font-weight: normal;">•</span>
-                      Conducted product demonstrations and presentations to potential clients.
+                      ${secondCompanyDescriptionTwo}
                     </li>
                   </ul>
                 </div>
@@ -516,37 +590,37 @@ export class ResumeTemplateComponent {
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    Bachelor of Engineering in ECE
+                    ${firstFieldOfStudy}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    7.8 CGPA
+                    ${firstFieldOfStudyGrade}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    ${firstFieldOfStudyLocation}
                   </h3>
                 </div>
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    PUC in GR Educational Institutions
+                    ${secondFieldOfStudy}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    78%
+                    ${secondFieldOfStudyGrade}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    ${secondFieldOfStudyLocation}
                   </h3>
                 </div>
 
                 <div style="position: relative;right:15px; padding-bottom: 20px;">
                   <h3 style="font-weight: bold; text-align: justify; word-break: normal; margin: 5px">
-                    SSLC in GR Educational Institutions
+                    ${thirdFieldOfStudy}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    9.4 CGPA
+                    ${thirdFieldOfStudyGrade}
                   </h3>
                   <h3 style="font-weight: normal; text-align: justify; word-break: normal; margin: 5px">
-                    India, Bangalore
+                    ${thirdFieldOfStudyLocation}
                   </h3>
                 </div>
               </div>
