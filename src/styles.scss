@@ -1,18 +1,40 @@
 @use '@angular/material' as mat;
 
-/* 🎨 Define custom palettes */
-$my-primary: mat.define-palette(mat.$blue-palette, 500);     // Pure blue
-$my-accent: mat.define-palette(mat.$light-blue-palette, A200); // Light blue accent
-$my-warn: mat.define-palette(mat.$red-palette);               // Default red for warnings
+// Import Material Core
+@include mat.core();
 
-/* 🌞 Create the theme */
+// Define proper palettes
+$my-primary: mat.define-palette(mat.$indigo-palette);
+$my-accent: mat.define-palette(mat.$pink-palette);
+
+// Define Material Theme
 $my-theme: mat.define-light-theme((
   color: (
     primary: $my-primary,
     accent: $my-accent,
-    warn: $my-warn,
-  )
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
 ));
 
-/* 🔥 Apply theme to all Angular Material components */
+// Apply the theme
 @include mat.all-component-themes($my-theme);
+
+// Tailwind should be first
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Global styles
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-red {
+  color: red;
+}
+
+.mat-dialog-container {
+  border-radius: 12px !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+  padding: 16px;
+}

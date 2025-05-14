@@ -13,13 +13,17 @@ import { ResumeDesignerComponent } from './resume-designer/resume-designer.compo
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
+import { HomeComponent } from './home/home.component';
+import { MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDesignerComponent,
     ResumeDesignerComponent,
-    ResumeTemplateComponent
+    ResumeTemplateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,8 @@ import { ResumeTemplateComponent } from './resume-template/resume-template.compo
     FormsModule  ,
     DragDropModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
