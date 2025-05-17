@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
 import { HomeComponent } from './home/home.component';
 import { MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiSetupComponent } from './api-setup/api-setup.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { MatIconModule} from '@angular/material/icon';
     TemplateDesignerComponent,
     ResumeDesignerComponent,
     ResumeTemplateComponent,
-    HomeComponent
+    HomeComponent,
+    ApiSetupComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { MatIconModule} from '@angular/material/icon';
     DragDropModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatIconModule
   ],
   providers: [],

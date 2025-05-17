@@ -15,5 +15,6 @@ export class AppComponent {
   menuItems: MenuItem[] = [
     { icon: 'home', label: 'Home', route: '/home' },
     { icon: 'info', label: 'Generate Resume', route: '/resume-template' },
+    { icon: 'info', label: 'Form', route: '/api-setup' },
   ];
 }
