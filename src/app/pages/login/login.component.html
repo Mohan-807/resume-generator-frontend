@@ -1,0 +1,19 @@
+<div class="h-screen flex items-center justify-center bg-gray-100">
+  <form (ngSubmit)="login()" class="bg-white p-6 rounded shadow-md w-96">
+    <h2 class="text-xl font-bold mb-4">Login</h2>
+
+    <input ngModel name="username" [(ngModel)]="username"
+           placeholder="Username" class="w-full mb-3 p-2 border" required>
+    <input ngModel name="password" [(ngModel)]="password" type="password"
+           placeholder="Password" class="w-full mb-6 p-2 border" required>
+
+    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded mb-3">
+      Login
+    </button>
+
+    <p class="text-center text-sm">
+      New here?
+      <a routerLink="/signup" class="text-blue-600 underline">Create an account</a>
+    </p>
+  </form>
+</div>

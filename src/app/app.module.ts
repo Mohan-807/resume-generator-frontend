@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiSetupComponent } from './api-setup/api-setup.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ApiSetupComponent } from './api-setup/api-setup.component';
     ResumeDesignerComponent,
     ResumeTemplateComponent,
     HomeComponent,
-    ApiSetupComponent
+    ApiSetupComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

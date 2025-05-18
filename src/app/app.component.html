@@ -1,33 +1,35 @@
-<nav class="bg-gray-800 fixed w-full z-10">
-  <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
-    <div class="relative flex h-20 items-center justify-between">
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            <a *ngFor="let item of menuItems"
-               [routerLink]="item.route"
-               class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-               routerLinkActive="bg-gray-900 text-white">
-              <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
-              {{ item.label }}
-            </a>
+<!-- Main layout visible only when logged in -->
+<div *ngIf="showLayout">
+  <nav class="bg-gray-800 fixed w-full z-10">
+    <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
+      <div class="relative flex h-20 items-center justify-between">
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <a *ngFor="let item of menuItems"
+                 [routerLink]="item.route"
+                 class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                 routerLinkActive="bg-gray-900 text-white">
+                <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
+                {{ item.label }}
+              </a>
+              <button (click)="logout()"
+                      class="text-white bg-red-600 px-3 py-1 rounded-md ml-4">
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="pt-20 overflow-auto">
-  <router-outlet></router-outlet>
+  <div class="pt-20 overflow-auto">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
-
-
-
-<!-- <h1>This is my new project</h1>
-<mat-tab-group>
-    <mat-tab label="Template Designer"><app-template-designer></app-template-designer> <div class="background-dark">content 1</div></mat-tab>
-    <mat-tab label="Resume Designer"><app-resume-designer></app-resume-designer> <div class="background-dark">content 2</div></mat-tab>
-    <mat-tab><app-resume-template></app-resume-template></mat-tab>
-</mat-tab-group> -->
+<!-- Full screen view for login/signup -->
+<div *ngIf="!showLayout">
+  <router-outlet></router-outlet>
+</div>

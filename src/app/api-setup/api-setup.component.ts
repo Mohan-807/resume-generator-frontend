@@ -109,7 +109,7 @@ export class ApiSetupComponent {
       fd.append('coverImage', this.coverImage);
     }
 
-    this.http.post('http://localhost:3000/generate-resume', fd, { responseType: 'text' as 'text' })
+    this.http.post('https://resume-backend-utyr.onrender.com/generate-resume', fd, { responseType: 'text' as 'text' })
       .subscribe(html => {
         const resumeHtml: string = html;
         const popup = window.open('', '_blank');
