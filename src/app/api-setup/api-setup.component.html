@@ -22,10 +22,20 @@
     </mat-form-field>
 
     <!-- Submit Button -->
-    <button mat-raised-button color="primary" (click)="previewDesign()" 
+    <!-- <button mat-raised-button color="primary" (click)="previewDesign()" 
             [disabled]="!resumeForm.valid || !templateImage || !coverImage" 
             style="margin-top: 16px;">
       Preview Design
+    </button> -->
+
+    <button mat-raised-button color="primary" (click)="printResume()" 
+            style="margin-top: 16px; padding:5%">
+      Print Resume
+    </button>
+
+    <button mat-raised-button color="primary" (click)="previewResume()" 
+            style="margin-top: 16px;">
+      Preview Resume
     </button>
   </div>
 </div>
