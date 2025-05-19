@@ -1,51 +1,52 @@
+// src/app/auth/auth.service.ts
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
-/** Simple credential object */
-export interface User {
-  username: string;
-  password: string;   // plain text for demo - replace in production
-}
-
-const USERS_KEY   = 'users';        // array of User objects
-const SESSION_KEY = 'sessionUser';  // just the logged-in username
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
+  private baseUrl = environment.apiBaseUrl; // Update if hosted elsewhere
+  private TOKEN_KEY = 'auth_token';
 
-  /* ---------- session helpers ---------- */
-  isLoggedIn(): boolean               { return !!localStorage.getItem(SESSION_KEY); }
-  currentUser(): string | null        { return localStorage.getItem(SESSION_KEY); }
-  private startSession(u: string): void { localStorage.setItem(SESSION_KEY, u); }
-  logout(): void                      { localStorage.removeItem(SESSION_KEY); }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  /* ---------- user persistence ---------- */
-  private loadUsers(): User[] {
-    return JSON.parse(localStorage.getItem(USERS_KEY) ?? '[]');
-  }
-  private saveUsers(users: User[]): void {
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem(this.TOKEN_KEY);
   }
 
-  /** Create new account */
-  register(user: User): { ok: true } | { ok: false; msg: string } {
-    const users = this.loadUsers();
-    if (users.some(u => u.username === user.username)) {
-      return { ok: false, msg: 'Username already taken' };
-    }
-    users.push(user);
-    this.saveUsers(users);
-    return { ok: true };
+  getToken(): string | null {
+    return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  /** Validate credentials and start session */
-  login(creds: User): { ok: true } | { ok: false; msg: string } {
-    const match = this.loadUsers().find(
-      u => u.username === creds.username && u.password === creds.password
-    );
-    if (!match) { return { ok: false, msg: 'Invalid username or password' }; }
-    this.startSession(match.username);
-    return { ok: true };
+  logout() {
+    localStorage.removeItem(this.TOKEN_KEY);
+    this.router.navigate(['/login']);
+  }
+
+  login(user: { username: string; password: string }) {
+    return this.http.post<{ access_token: string }>(`${this.baseUrl}/login`, user)
+      .subscribe({
+        next: res => {
+          localStorage.setItem(this.TOKEN_KEY, res.access_token);
+          this.router.navigate(['/home']);
+        },
+        error: err => {
+          alert(err.error.message || 'Login failed');
+        }
+      });
+  }
+
+  signup(user: { username: string; password: string }) {
+    return this.http.post(`${this.baseUrl}/signup`, user)
+      .subscribe({
+        next: () => {
+          alert('Signup successful! Please login.');
+          this.router.navigate(['/login']);
+        },
+        error: err => {
+          alert(err.error.message || 'Signup failed');
+        }
+      });
   }
 }
