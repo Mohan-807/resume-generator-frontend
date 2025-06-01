@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
 
 interface MenuItem {
@@ -13,27 +14,43 @@ interface MenuItem {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  /** Controls whether the navbar/layout should be visible */
   showLayout = true;
 
-  menuItems: MenuItem[] = [
+  /** Top-level navigation links */
+  readonly menuItems: MenuItem[] = [
     { icon: 'home', label: 'Home', route: '/home' },
-    { icon: 'info', label: 'Generate Resume', route: '/resume-template' },
-    { icon: 'info', label: 'Form', route: '/api-setup' },
+    { icon: 'description', label: 'Generate Resume', route: '/resume-template' },
+    { icon: 'list_alt', label: 'Form', route: '/api-setup' }
   ];
 
-  constructor(private router: Router, private authService: AuthService) {
-    // Hide layout on login/signup pages
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const currentUrl = event.url;
-        this.showLayout = !currentUrl.includes('/login') && !currentUrl.includes('/signup');
-      }
-    });
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) { }
+
+  /** Initialise once the component is bootstrapped */
+  ngOnInit(): void {
+    /** 1️⃣  Set the flag for the very first URL (initial page load) */
+    this.setLayoutVisibility(this.router.url);
+
+    /** 2️⃣  Keep it updated for every subsequent navigation */
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(event => {
+        this.setLayoutVisibility(event.urlAfterRedirects);
+      });
   }
 
-  logout() {
-    this.authService.logout();  // remove user from localStorage
+  /** Compute whether the main layout should be shown */
+  private setLayoutVisibility(url: string): void {
+    this.showLayout = !url.startsWith('/login') && !url.startsWith('/signup');
+  }
+
+  /** Clear credentials and return to the login page */
+  logout(): void {
+    this.authService.logout();
     this.router.navigate(['/login']);
   }
 }
