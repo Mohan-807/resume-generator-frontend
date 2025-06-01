@@ -15,42 +15,37 @@ interface MenuItem {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  /** Controls whether the navbar/layout should be visible */
+  /** Show navbar & chrome? */
   showLayout = true;
 
-  /** Top-level navigation links */
   readonly menuItems: MenuItem[] = [
-    { icon: 'home', label: 'Home', route: '/home' },
+    { icon: 'home',        label: 'Home',            route: '/home' },
     { icon: 'description', label: 'Generate Resume', route: '/resume-template' },
-    { icon: 'list_alt', label: 'Form', route: '/api-setup' }
+    { icon: 'list_alt',    label: 'Form',            route: '/api-setup' }
   ];
 
   constructor(
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private auth: AuthService
+  ) {}
 
-  /** Initialise once the component is bootstrapped */
   ngOnInit(): void {
-    /** 1️⃣  Set the flag for the very first URL (initial page load) */
-    this.setLayoutVisibility(this.router.url);
+    /* ---------- 1️⃣  initial URL ---------- */
+    this.setLayout(this.router.url);
 
-    /** 2️⃣  Keep it updated for every subsequent navigation */
+    /* ---------- 2️⃣  future navigations ---------- */
     this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe(event => {
-        this.setLayoutVisibility(event.urlAfterRedirects);
-      });
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe(e => this.setLayout(e.urlAfterRedirects));
   }
 
-  /** Compute whether the main layout should be shown */
-  private setLayoutVisibility(url: string): void {
+  private setLayout(url: string): void {
+    /* hide chrome on /login or /signup (with or without query-string) */
     this.showLayout = !url.startsWith('/login') && !url.startsWith('/signup');
   }
 
-  /** Clear credentials and return to the login page */
   logout(): void {
-    this.authService.logout();
+    this.auth.logout();
     this.router.navigate(['/login']);
   }
 }
