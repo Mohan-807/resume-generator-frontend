@@ -19,6 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiSetupComponent } from './api-setup/api-setup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CustomSnackbarComponent } from './shared/custom-snackbar/custom-snackbar.component';
+import { CommonModule } from '@angular/common';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -30,11 +35,14 @@ import { SignupComponent } from './pages/signup/signup.component';
     HomeComponent,
     ApiSetupComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CustomSnackbarComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -44,6 +52,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
     MatIconModule
   ],
   providers: [],

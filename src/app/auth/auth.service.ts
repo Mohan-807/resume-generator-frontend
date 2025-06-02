@@ -3,13 +3,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { CustomSnackbarService } from '../shared/custom-snackbar.service';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private baseUrl = environment.apiBaseUrl; // Update if hosted elsewhere
   private TOKEN_KEY = 'auth_token';
+  loading = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackbarService: CustomSnackbarService
+  ) { }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem(this.TOKEN_KEY);
@@ -24,18 +31,10 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  login(user: { username: string; password: string }) {
-    return this.http.post<{ access_token: string }>(`${this.baseUrl}/login`, user)
-      .subscribe({
-        next: res => {
-          localStorage.setItem(this.TOKEN_KEY, res.access_token);
-          this.router.navigate(['/home']);
-        },
-        error: err => {
-          alert(err.error.message || 'Login failed');
-        }
-      });
-  }
+login(user: { username: string; password: string }) {
+  return this.http.post<{ access_token: string }>(`${this.baseUrl}/login`, user).pipe();
+}
+
 
   signup(user: { username: string; password: string }) {
     return this.http.post(`${this.baseUrl}/signup`, user)
