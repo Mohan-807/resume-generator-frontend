@@ -22,6 +22,7 @@ $my-theme: mat.define-light-theme((
 
 // Now include Tailwind components and utilities but
 // DO NOT include `@tailwind base` here to avoid CSS reset overriding Material styles
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 

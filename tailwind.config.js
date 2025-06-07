@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{html,ts,scss}"],
+ /** @type {import('tailwindcss').Config} */
+ export default {
+  content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
       colors: {
@@ -11,9 +11,6 @@ module.exports = {
         'neon-blue': '#2FB8FF',
       }
     },
-  },
-  corePlugins: {
-    preflight: false,  // Disable Tailwind base CSS reset to not interfere with Angular Material styles
   },
   plugins: [],
 }
