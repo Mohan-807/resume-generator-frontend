@@ -1,25 +1,200 @@
-<div class="container">
-  <div class="left-column background-dark">
+<div [formGroup]="resumeForm"
+  style=" overflow-y: auto;">
     <h2>Upload A4 Background Image</h2>
 
     <input type="file" accept="image/*" (change)="onImageSelected($event)" />
 
-    <button mat-raised-button (click)="previewDesign()" [disabled]="!templateImage">
-      Preview Design
+    <div style="margin-top: 20px;">
+      <label for="coverImage">Profile Image</label>
+      <input type="file" id="coverImage" accept="image/*" (change)="onCoverImageSelected($event)" />
+
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Job Title</mat-label>
+        <input matInput formControlName="jobTitle" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Profile Summary</mat-label>
+        <input matInput formControlName="profileSummary" />
+      </mat-form-field>
+
+       <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 1</mat-label>
+        <input matInput formControlName="skillOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 2</mat-label>
+        <input matInput formControlName="skillTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 3</mat-label>
+        <input matInput formControlName="skillThree" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 4</mat-label>
+        <input matInput formControlName="skillFour" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Skill 5</mat-label>
+        <input matInput formControlName="skillFive" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 1</mat-label>
+        <input matInput formControlName="languageOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 2</mat-label>
+        <input matInput formControlName="languageTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 3</mat-label>
+        <input matInput formControlName="languageThree" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 4</mat-label>
+        <input matInput formControlName="languageFour" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Language 5</mat-label>
+        <input matInput formControlName="languageFive" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="lastName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Organization Name</mat-label>
+        <input matInput formControlName="firstCompanyName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="firstCompanyRole" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="firstCompanyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Description</mat-label>
+        <input matInput formControlName="firstCompanyDescriptionOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Description</mat-label>
+        <input matInput formControlName="firstCompanyDescriptionTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Organization Name</mat-label>
+        <input matInput formControlName="secondCompanyName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="secondCompanyRole" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="secondCompanyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Description</mat-label>
+        <input matInput formControlName="secondCompanyDescriptionOne" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Description</mat-label>
+        <input matInput formControlName="secondCompanyDescriptionTwo" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>First Education Name</mat-label>
+        <input matInput formControlName="firstFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="firstFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="firstFieldOfStudyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Second Education Name</mat-label>
+        <input matInput formControlName="secondFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="secondFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="secondFieldOfStudyLocation" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Third Education Name</mat-label>
+        <input matInput formControlName="thirdFieldOfStudy" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="thirdFieldOfStudyGrade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="thirdFieldOfStudyLocation" />
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button (click)="previewResume()">
+      Preview Resume
+    </button>
+
+    <button mat-raised-button (click)="printResume()">
+      Print Resume
     </button>
   </div>
-
-  <div class="right-column">
-    <div class="a4-preview" style="position: relative; width: 210mm; height: 297mm; background: lightgray;">
-      <img
-        *ngIf="templateImage"
-        [src]="templateImage"
-        alt="Template"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;"
-      />
-      <div class="content-layer" style="position: relative; z-index: 1; padding: 20px;">
-        <!-- You can place any preview content here in future -->
-      </div>
-    </div>
-  </div>
-</div>

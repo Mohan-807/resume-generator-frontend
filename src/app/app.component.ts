@@ -23,7 +23,9 @@ export class AppComponent implements OnInit,OnDestroy {
 
   readonly menuItems: MenuItem[] = [
     { icon: 'home', label: 'Home', route: '/home' },
-    { icon: 'description', label: 'Generate Resume', route: '/resume-template' },
+    { icon: 'list_alt', label: 'Generate Resume', route: '/resume-designer' },
+
+    // { icon: 'description', label: 'Generate Resume', route: '/resume-template' },
     { icon: 'list_alt', label: 'Form', route: '/api-setup' }
   ];
 
