@@ -1,5 +1,6 @@
 <!-- Main layout visible only when logged in -->
 <div *ngIf="showLayout">
+  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
   <nav class="bg-gray-800 fixed w-full z-10">
     <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
       <div class="relative flex h-20 items-center justify-between">
@@ -8,7 +9,8 @@
             <div class="flex space-x-4">
               <a *ngFor="let item of menuItems"
                  [routerLink]="item.route"
-                 class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                 class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white
+                 no-underline"
                  routerLinkActive="bg-gray-900 text-white">
                 <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
                 {{ item.label }}

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AuthService } from './auth/auth.service';
+import { Subscription } from 'rxjs';
 
 interface MenuItem {
   icon: string;
@@ -14,38 +15,55 @@ interface MenuItem {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnDestroy {
   /** Show navbar & chrome? */
   showLayout = true;
+  loading = false;
+   private loadingSub!: Subscription;
 
   readonly menuItems: MenuItem[] = [
-    { icon: 'home',        label: 'Home',            route: '/home' },
+    { icon: 'home', label: 'Home', route: '/home' },
     { icon: 'description', label: 'Generate Resume', route: '/resume-template' },
-    { icon: 'list_alt',    label: 'Form',            route: '/api-setup' }
+    { icon: 'list_alt', label: 'Form', route: '/api-setup' }
   ];
 
   constructor(
     private router: Router,
     private auth: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    /* ---------- 1️⃣  initial URL ---------- */
     this.setLayout(this.router.url);
 
-    /* ---------- 2️⃣  future navigations ---------- */
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
       .subscribe(e => this.setLayout(e.urlAfterRedirects));
+
+       this.loadingSub = this.auth.loading$.subscribe(
+      state => this.loading = state
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.loadingSub.unsubscribe();
   }
 
   private setLayout(url: string): void {
-    /* hide chrome on /login or /signup (with or without query-string) */
     this.showLayout = !url.startsWith('/login') && !url.startsWith('/signup');
   }
 
+  // via behavioral subject
   logout(): void {
     this.auth.logout();
-    this.router.navigate(['/login']);
   }
+
+  // This is via promise
+  // logout(): void {
+  //   this.loading = true;
+
+  //   this.auth.logout().then(() => {
+  //     this.loading = false;
+  //     this.router.navigate(['/login']);
+  //   });
+  // }
 }

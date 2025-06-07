@@ -10,7 +10,7 @@ export class CustomSnackbarService {
     const config: MatSnackBarConfig = {
       duration,
       data: { message, type },
-      panelClass: ['custom-snackbar-panel'],
+      panelClass: ['success'],
       horizontalPosition: 'end',
       verticalPosition: 'top'
     };

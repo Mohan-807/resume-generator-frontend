@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CustomSnackbarComponent } from './shared/custom-snackbar/custom-snackbar.component';
 import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     AppRoutingModule,
     CommonModule,
     MatTabsModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

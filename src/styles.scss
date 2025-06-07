@@ -1,13 +1,13 @@
 @use '@angular/material' as mat;
 
-// Import Material Core
+//Include Angular Material core styles first
 @include mat.core();
 
-// Define proper palettes
+//Define palettes
 $my-primary: mat.define-palette(mat.$indigo-palette);
 $my-accent: mat.define-palette(mat.$pink-palette);
 
-// Define Material Theme
+// Define your custom Angular Material theme
 $my-theme: mat.define-light-theme((
   color: (
     primary: $my-primary,
@@ -17,20 +17,42 @@ $my-theme: mat.define-light-theme((
   density: 0,
 ));
 
-// Apply the theme
+// Apply the Angular Material theme to all components
 @include mat.all-component-themes($my-theme);
 
-// Tailwind should be first
-@tailwind base;
+// Now include Tailwind components and utilities but
+// DO NOT include `@tailwind base` here to avoid CSS reset overriding Material styles
 @tailwind components;
 @tailwind utilities;
 
-// Global styles
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Your global custom styles
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .text-red {
   color: red;
+}
+
+.snackbar-success {
+  background-color: red !important;
+  color: white !important;
+  border-radius: 10px !important;
+
+  .mdc-snackbar__surface {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .mat-mdc-snack-bar-label {
+    color: white !important;
+  }
+
+  .mat-mdc-snack-bar-action {
+    color: yellow !important;
+  }
 }
 
 .mat-dialog-container {
