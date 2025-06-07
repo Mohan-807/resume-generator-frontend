@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-resume-designer',
   templateUrl: './resume-designer.component.html',
-  styleUrls: ['./resume-designer.component.css']
+  styleUrls: ['./resume-designer.component.scss']
 })
 export class ResumeDesignerComponent {
   templateImage?: string;
