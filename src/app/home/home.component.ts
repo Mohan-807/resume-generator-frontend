@@ -10,17 +10,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HomeComponent {
 
   constructor(
-     private snackbar: MatSnackBar
-  ){
+    private snackbar: MatSnackBar,
+        private snackbarService: CustomSnackbarService
+  ) {
   }
-openSnackBar():void {
-   const message = 'message is success'
- this.snackbar.open(message, 'Close', {
-  duration: 3000,
-  panelClass: ['snackbar-success'],
-  horizontalPosition: 'end',
-  verticalPosition: 'top'
-});
+  openSnackBar(): void {
+       this.snackbarService.open('Logged in successfully!', 'error');
+  }
 
-}
+  openCustomSnackBar(): void {
+    this.snackbarService.open('Logged in successfully!', 'success');
+  }
 }
