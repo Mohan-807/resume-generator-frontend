@@ -24,7 +24,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { MatButtonModule } from '@angular/material/button';
-
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    NgxMatFileInputModule,
+    MatTooltipModule,
     MatIconModule
   ],
   providers: [],

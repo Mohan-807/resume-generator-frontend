@@ -1,200 +1,323 @@
-<div [formGroup]="resumeForm"
-  style=" overflow-y: auto;">
-    <h2>Upload A4 Background Image</h2>
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>
 
-    <input type="file" accept="image/*" (change)="onImageSelected($event)" />
+<div *ngIf="resumeForm" class="p-6" style="position: relative; flex: 1 1 auto; width: 100%;">
+  <form [formGroup]="resumeForm">
 
-    <div style="margin-top: 20px;">
-      <label for="coverImage">Profile Image</label>
-      <input type="file" id="coverImage" accept="image/*" (change)="onCoverImageSelected($event)" />
-
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Job Title</mat-label>
-        <input matInput formControlName="jobTitle" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Phone</mat-label>
-        <input matInput formControlName="phone" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="location" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Profile Summary</mat-label>
-        <input matInput formControlName="profileSummary" />
-      </mat-form-field>
-
-       <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Skill 1</mat-label>
-        <input matInput formControlName="skillOne" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Skill 2</mat-label>
-        <input matInput formControlName="skillTwo" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Skill 3</mat-label>
-        <input matInput formControlName="skillThree" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Skill 4</mat-label>
-        <input matInput formControlName="skillFour" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Skill 5</mat-label>
-        <input matInput formControlName="skillFive" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Language 1</mat-label>
-        <input matInput formControlName="languageOne" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Language 2</mat-label>
-        <input matInput formControlName="languageTwo" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Language 3</mat-label>
-        <input matInput formControlName="languageThree" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Language 4</mat-label>
-        <input matInput formControlName="languageFour" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Language 5</mat-label>
-        <input matInput formControlName="languageFive" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>First Name</mat-label>
-        <input matInput formControlName="lastName" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="firstName" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>First Organization Name</mat-label>
-        <input matInput formControlName="firstCompanyName" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Role</mat-label>
-        <input matInput formControlName="firstCompanyRole" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="firstCompanyLocation" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>First Description</mat-label>
-        <input matInput formControlName="firstCompanyDescriptionOne" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Second Description</mat-label>
-        <input matInput formControlName="firstCompanyDescriptionTwo" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Second Organization Name</mat-label>
-        <input matInput formControlName="secondCompanyName" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Role</mat-label>
-        <input matInput formControlName="secondCompanyRole" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="secondCompanyLocation" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>First Description</mat-label>
-        <input matInput formControlName="secondCompanyDescriptionOne" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Second Description</mat-label>
-        <input matInput formControlName="secondCompanyDescriptionTwo" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>First Education Name</mat-label>
-        <input matInput formControlName="firstFieldOfStudy" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Grade</mat-label>
-        <input matInput formControlName="firstFieldOfStudyGrade" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="firstFieldOfStudyLocation" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Second Education Name</mat-label>
-        <input matInput formControlName="secondFieldOfStudy" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Grade</mat-label>
-        <input matInput formControlName="secondFieldOfStudyGrade" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="secondFieldOfStudyLocation" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Third Education Name</mat-label>
-        <input matInput formControlName="thirdFieldOfStudy" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Grade</mat-label>
-        <input matInput formControlName="thirdFieldOfStudyGrade" />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" style="width: 100%;">
-        <mat-label>Location</mat-label>
-        <input matInput formControlName="thirdFieldOfStudyLocation" />
-      </mat-form-field>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Image Section</h2>
+    <hr class="my-4 border-t border-gray-300" />
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <div class="file-upload-wrapper">
+          <button type="button" class="upload-btn" (click)="backgroundInput.click()">
+            Upload Resume Background Image
+          </button>
+          <input #backgroundInput type="file" accept="image/*" class="hidden-file-input"
+            (change)="handleFileInput($event, 'backgroundImage')" />
+          <div class="file-name" *ngIf="selectedBackGroundFileName">
+            {{ selectedBackGroundFileName }}
+          </div>
+        </div>
+      </div>
+      <div class="col-span-3">
+        <div class="file-upload-wrapper">
+          <button type="button" class="upload-btn" (click)="profileInput.click()">
+            Upload Profile Image
+          </button>
+          <input #profileInput type="file" accept="image/*" class="hidden-file-input"
+            (change)="handleFileInput($event, 'profileImage')" />
+          <div class="file-name" *ngIf="selectedProfileFileName">
+            {{ selectedProfileFileName }}
+          </div>
+        </div>
+      </div>
     </div>
 
-    <button mat-raised-button (click)="previewResume()">
-      Preview Resume
-    </button>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Personal Details</h2>
+    <hr class="my-4 border-t border-gray-300" />
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>First Name</mat-label>
+          <input [formControlName]="'lastName'" matInput>
+        </mat-form-field>
+      </div>
 
-    <button mat-raised-button (click)="printResume()">
-      Print Resume
-    </button>
-  </div>
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Last Name</mat-label>
+          <input [formControlName]="'firstName'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Title</mat-label>
+          <input [formControlName]="'jobTitle'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Email Address</mat-label>
+          <input [formControlName]="'email'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Phone Number</mat-label>
+          <input [formControlName]="'phone'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Current Location</mat-label>
+          <input [formControlName]="'location'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Professional Summary</mat-label>
+          <input [formControlName]="'profileSummary'" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Skills</h2>
+    <hr class="my-4 border-t border-gray-300" />
+
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Skill 1</mat-label>
+          <input [formControlName]="'skillOne'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Skill 2</mat-label>
+          <input [formControlName]="'skillTwo'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Skill 3</mat-label>
+          <input [formControlName]="'skillThree'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Skill 4</mat-label>
+          <input [formControlName]="'skillFour'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Skill 5</mat-label>
+          <input [formControlName]="'skillFive'" matInput>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Languages</h2>
+    <hr class="my-4 border-t border-gray-300" />
+
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Language Proficiency 1</mat-label>
+          <input [formControlName]="'languageOne'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Language Proficiency 2</mat-label>
+          <input [formControlName]="'languageTwo'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Language Proficiency 3</mat-label>
+          <input [formControlName]="'languageThree'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Language Proficiency 4</mat-label>
+          <input [formControlName]="'languageFour'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Language Proficiency 5</mat-label>
+          <input [formControlName]="'languageFive'" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Organization Details</h2>
+    <hr class="my-4 border-t border-gray-300" />
+
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>First Company</mat-label>
+          <input [formControlName]="'firstCompanyName'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Role</mat-label>
+          <input [formControlName]="'firstCompanyRole'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Company Location</mat-label>
+          <input [formControlName]="'firstCompanyLocation'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Responsibility 1</mat-label>
+          <input [formControlName]="'firstCompanyDescriptionOne'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Responsibility 2</mat-label>
+          <input [formControlName]="'firstCompanyDescriptionTwo'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Second Company</mat-label>
+          <input [formControlName]="'secondCompanyName'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Role</mat-label>
+          <input [formControlName]="'secondCompanyRole'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Company Location</mat-label>
+          <input [formControlName]="'secondCompanyLocation'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Responsibility 1</mat-label>
+          <input [formControlName]="'secondCompanyDescriptionOne'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Job Responsibility 2</mat-label>
+          <input [formControlName]="'secondCompanyDescriptionTwo'" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Education Details</h2>
+    <hr class="my-4 border-t border-gray-300" />
+
+    <div class="grid grid-cols-12 gap-6 w-full">
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>First Degree / Course</mat-label>
+          <input [formControlName]="'firstFieldOfStudy'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Grade / CGPA</mat-label>
+          <input [formControlName]="'firstFieldOfStudyGrade'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Institution Location</mat-label>
+          <input [formControlName]="'firstFieldOfStudyLocation'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Second Degree / Course</mat-label>
+          <input [formControlName]="'secondFieldOfStudy'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Grade / CGPA</mat-label>
+          <input [formControlName]="'secondFieldOfStudyGrade'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Institution Location</mat-label>
+          <input [formControlName]="'secondFieldOfStudyLocation'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Third Degree / Course</mat-label>
+          <input [formControlName]="'thirdFieldOfStudy'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Grade / CGPA</mat-label>
+          <input [formControlName]="'thirdFieldOfStudyGrade'" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col-span-3">
+        <mat-form-field class="fuse-mat-no-subscript w-full">
+          <mat-label>Institution Location</mat-label>
+          <input [formControlName]="'thirdFieldOfStudyLocation'" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <span matTooltip="Fill Personal Details." [matTooltipDisabled]="!resumeForm.invalid" matTooltipPosition="above">
+      <button class="mr-5" mat-raised-button color="primary" (click)="previewResume()" [disabled]="resumeForm.invalid">
+        Preview Resume
+      </button>
+    </span>
+
+    <span matTooltip="Fill Personal Details." [matTooltipDisabled]="!resumeForm.invalid" matTooltipPosition="above">
+      <button mat-raised-button color="primary" (click)="printResume()" [disabled]="resumeForm.invalid">
+        Print Resume
+      </button>
+    </span>
+  </form>
+</div>
