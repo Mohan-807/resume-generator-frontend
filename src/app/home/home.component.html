@@ -1,4 +1,56 @@
-<!-- Custom snack bar button: Avoid inline styles if you want Material theme colors -->
-<button mat-raised-button color="primary" (click)="openSnackBar()">Custom Snack Bar Button</button>
+<div class="min-h-screen bg-gray-100 flex flex-col justify-between">
 
-<button mat-raised-button color="primary" (click)="openCustomSnackBar()">Snack Bar Button</button>
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">Resume Generator</h1>
+            <a routerLink="/resume-designer">
+                <button class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+                    Get Started
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-16 text-center bg-gray-800 text-white">
+            <h2 class="text-4xl font-extrabold text-white mb-4">Build Stunning Resumes Effortlessly</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                Upload your images, enter your details, and get a beautifully formatted A4 resume ready to print or
+                share.
+            </p>
+            <a routerLink="/resume-designer">
+                <button class="bg-green-600 text-white px-8 py-3 rounded-full text-lg hover:bg-green-700 transition">
+                    Start Designing Now
+                </button>
+            </a>
+        </div>
+
+        <!-- Features Section -->
+        <div class="bg-white py-16">
+            <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div>
+                    <div class="text-5xl text-blue-500 mb-4">📄</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Live Preview</h3>
+                    <p class="text-gray-600">Instantly preview your resume as you build it with real-time rendering.</p>
+                </div>
+                <div>
+                    <div class="text-5xl text-green-500 mb-4">🖼️</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Image Upload</h3>
+                    <p class="text-gray-600">Upload custom background and profile images for a personal touch.</p>
+                </div>
+                <div>
+                    <div class="text-5xl text-red-500 mb-4">🖨️</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Print-Ready</h3>
+                    <p class="text-gray-600">Export or print your resume in standard A4 format with just one click.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; {{ currentYear }} Resume Generator. All rights reserved.</p>
+    </footer>
+</div>
