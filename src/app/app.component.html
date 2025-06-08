@@ -1,26 +1,28 @@
 <!-- Main layout visible only when logged in -->
 <div *ngIf="showLayout">
-  <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-  <nav class="bg-gray-800 fixed w-full z-10">
-    <div class="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
-      <div class="relative flex h-20 items-center justify-between">
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-              <a *ngFor="let item of menuItems"
-                 [routerLink]="item.route"
-                 class="flex items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white
-                 no-underline"
-                 routerLinkActive="bg-gray-900 text-white">
-                <mat-icon class="mr-2">{{ item.icon }}</mat-icon>
-                {{ item.label }}
-              </a>
-              <button (click)="logout()"
-                      class="text-white bg-red-600 px-3 py-1 rounded-md ml-4">
-                Logout
-              </button>
-            </div>
-          </div>
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>
+  <nav class="bg-gray-900 fixed top-0 w-full z-20 shadow">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo / Brand -->
+        <div class="flex-shrink-0 text-white font-bold text-xl">
+          Resume Generator
+        </div>
+
+        <!-- Menu (visible on all screen sizes) -->
+        <div class="flex space-x-6">
+          <a *ngFor="let item of menuItems"
+             [routerLink]="item.route"
+             routerLinkActive="bg-gray-700 text-white"
+             class="flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white no-underline transition">
+            <mat-icon class="text-base">{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+          </a>
+          <button (click)="logout()"
+                  class="ml-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition">
+            Logout
+          </button>
         </div>
       </div>
     </div>
